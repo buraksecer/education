@@ -1,0 +1,72 @@
+﻿@model egitim.Models.database
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update</title>
+</head>
+<body>
+    <div class="container-fluid">
+
+
+
+
+
+
+
+
+
+        <table class="table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        ADI
+
+                    </th>
+                    <th>
+                        SOYADI
+
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            @using (Html.BeginForm())
+            {
+
+                 <tbody>
+                        <tr class="warning">
+                            <td>@Html.TextBox("adi", @Html.DisplayFor(model => model.egitimTablosu.adi), new { @class = "form-control input-lg", Type = "text " })</td>
+                            <td>@Html.TextBox("soyadi", @Html.DisplayFor(model => model.egitimTablosu.soyadi), new { @class = "form-control input-lg", Type = "text " })</td>
+                           
+                        <td><input type="submit" value="UPDATE" class="btn btn-default" /></td>  
+
+                        </tr>
+
+                        
+                        
+                    </tbody>
+                   
+               
+               
+                
+            }
+        </table>
+
+
+
+
+
+
+
+    </div>
+
+</body>
+</html>

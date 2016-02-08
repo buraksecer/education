@@ -1,0 +1,41 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+    @ViewBag.deneme
+    @ViewData["Key"]
+
+    
+    @using (Html.BeginForm())
+    {
+
+        <div class="col-md-6 col-lg-push-3">
+
+
+            <div>
+
+                @Html.TextBox("adi",null,new {@class="form-control",Type="textarea" , placeholder= "Adınızı Giriniz:" })
+                @Html.TextBox("soyadi",null,new  { @class="form-control",Type="textara", placeholder="Soyadınızı Giriniz:"})
+                <input type="submit"  class="btn btn-success col-md-12" />
+
+            </div>
+
+
+
+        </div>
+
+
+    }
+
+
+</body>
+</html>

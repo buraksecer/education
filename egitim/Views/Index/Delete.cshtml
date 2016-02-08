@@ -1,0 +1,133 @@
+﻿@model egitim.Models.database
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container-fluid"> 
+
+        
+
+     
+
+
+       
+
+
+                <table class="table" id="Table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ADI
+
+                            </th>
+                            <th>
+                                SOYADI
+
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    @using (Html.BeginForm())
+                    {
+
+                        foreach (var post in Model.egitimTablosuE)
+                        {
+                    <tbody>
+                        <tr class="warning">
+
+                            <td>@Html.DisplayFor(m => post.adi)</td>
+
+                            <td>@Html.DisplayFor(m =>post.soyadi)</td>
+                            
+                            <td>
+                              
+                                <input type="submit" value="Delete" class="btn btn-default" />
+                            </td>
+                            <td><a href="@Url.Action("Update/"+post.adi, "Index/")">GÜNCELLE</a></td>
+                        </tr>
+                        
+
+
+                    </tbody>
+                    
+                        }
+                        @Html.TextBox("adi",null,new {@class="form-control input-lg",Type="hidden" })
+                    }
+                </table>
+
+
+
+        
+        
+
+
+    </div>
+
+
+
+    <script>
+
+        (function () {
+            if (window.addEventListener) {
+                window.addEventListener('load', run, false);
+            } else if (window.attachEvent) {
+                window.attachEvent('onload', run);
+            }
+
+            function run() {
+                var t = document.getElementById('Table');
+                if (t) {
+                    t.onclick = function (event) {
+                        event = event || window.event; //IE8
+                        var target = event.target || event.srcElement;
+                        while (target && target.nodeName != 'TR') { // find TR
+                            target = target.parentElement;
+                        }
+                        //if (!target) { return; } //tr should be always found
+                        var cells = target.cells; //cell collection
+                        //var cells = target.getElementsByTagName('td'); //alternative
+                        if (!cells.length || target.parentNode.nodeName == 'THEAD') {
+                            return;
+                        }
+                        var f1 = document.getElementById('adi');
+
+                        f1.value = cells[0].innerHTML;
+
+
+                        //console.log(target.nodeName, event);
+                    };
+                }
+
+
+
+
+              
+            }
+
+
+
+
+
+
+
+        })();
+
+
+    </script>
+
+
+</body>
+</html>
